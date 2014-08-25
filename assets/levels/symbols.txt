@@ -1,0 +1,12 @@
+a - air/empty tile
+
+w - wall, cannot be jumped on
+f - floor, can be jumped on
+
+t - triangle spike, up
+y - triangle spike, down
+u - triangle spike, left
+i - triangle spike, right
+
+s - spawn point
+e - end point

@@ -1,0 +1,43 @@
+{
+	"name": "Level 7",
+	"id": 7,
+	"width": 30,
+	"height": 16,
+	
+	"dimension_1": [
+		w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, y, y, y, y, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, a, a, a, a, t, a, a, a, t, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, t, f, f, f, f, f, f, f, f, f, s, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, w, w, y, a, a, a, y, a, a, a, y, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, f, t, a, a, a, a, t, a, a, a, t, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, w, f, w, f, f, f, f, f, f, f, f, e, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, a, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, a, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, t, t, t, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, f, f, f, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, w
+	],
+	"dimension_2": [
+		w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, y, y, y, y, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, a, a, a, a, t, a, a, a, t, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, f, f, f, f, f, f, f, f, f, f, s, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, u, w, a, a, a, a, y, y, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, t, a, a, w, a, a, t, a, a, a, a, t, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, w, a, a, w, f, f, f, f, f, f, f, f, e, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, f, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, a, a, a, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, t, t, t, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w, f, f, f, w, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, w,
+		w, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, f, w
+	]
+}
