@@ -1,7 +1,6 @@
-bouncy-box
+Bouncy Box
 ==========
-
-Ludum Dare 30 Entry
+[Download JAR](https://s3.amazonaws.com/rqbrt/bouncy_box.jar)
 
 For my second Ludum Dare, I made a simple yet challenging platformer. You play as a box that bounces and rotates around.
 The goal is to start on the green tile and get to the blue tile while avoiding the spikes. Each level (there are 7 levels)
