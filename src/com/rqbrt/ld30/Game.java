@@ -25,7 +25,6 @@ public class Game extends ApplicationAdapter {
 			new String[]{"0", "0s"},		// level 4
 			new String[]{"0", "0s"},		// level 5
 			new String[]{"0", "0s"},		// level 6
-			new String[]{"0", "0s"},		// level 7
 	};
 	
 	@Override

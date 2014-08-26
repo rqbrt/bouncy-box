@@ -13,11 +13,11 @@ public class BrickTile extends Tile {
 		solid = true;
 		
 		bodyDef.type = BodyType.StaticBody;
-		bodyDef.position.set(x + 16, y + 16);
+		bodyDef.position.set((x / 32) + 0.5f, (y / 32) + 0.5f);
 		body = dimension.getLevel().getWorld().createBody(bodyDef);
 		
 		PolygonShape box = new PolygonShape();
-		box.setAsBox(16, 16);
+		box.setAsBox(0.5f, 0.5f);
 		body.createFixture(box, 0);
 		box.dispose();
 		

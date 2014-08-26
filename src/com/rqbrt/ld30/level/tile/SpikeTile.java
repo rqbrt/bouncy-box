@@ -17,16 +17,16 @@ public class SpikeTile extends Tile {
 		super(dimension, id, null, x, y);
 		
 		bodyDef.type = BodyType.StaticBody;
-		bodyDef.position.set(x, y);
+		bodyDef.position.set(x / 32, y / 32);
 		
 		angle = 0;
 		if(dir == 1) angle = 180;
 		if(dir == 2) angle = 90;
 		if(dir == 3) angle = 270;
 		
-		if(dir == 1) bodyDef.position.set(x + width, y + height);
-		if(dir == 2) bodyDef.position.set(x + width, y);
-		if(dir == 3) bodyDef.position.set(x, y + height);
+		if(dir == 1) bodyDef.position.set((x + width) / 32, (y + height) / 32);
+		if(dir == 2) bodyDef.position.set((x + width) / 32, (y) / 32);
+		if(dir == 3) bodyDef.position.set((x) / 32, (y + height) / 32);
 		
 		bodyDef.angle = (float) Math.toRadians(angle);
 		
@@ -36,8 +36,8 @@ public class SpikeTile extends Tile {
 		
 		triangle.set(new float[] {
 				0, 0,
-				width, 0,
-				width / 2, height
+				width / 32, 0,
+				(width / 2) / 32, height / 32
 		});
 		body.createFixture(triangle, 0);
 		triangle.dispose();
@@ -45,9 +45,9 @@ public class SpikeTile extends Tile {
 		body.setUserData(this);
 		
 		Vector2 pos = body.getPosition();
-		transform.translate(pos.x, pos.y, 0);
+		transform.translate(pos.x * 32, pos.y * 32, 0);
 		transform.rotate(0, 0, 1, angle);
-		transform.translate(-pos.x, -pos.y, 0);
+		transform.translate(-pos.x * 32, -pos.y * 32, 0);
 	}
 	
 	@Override
@@ -57,7 +57,7 @@ public class SpikeTile extends Tile {
 		g.shapeRenderer.begin(ShapeType.Line);
 		g.shapeRenderer.setColor(Color.RED);
 		g.shapeRenderer.setTransformMatrix(transform);
-		g.shapeRenderer.triangle(pos.x, pos.y, pos.x + width, pos.y, pos.x + width / 2, pos.y + height);
+		g.shapeRenderer.triangle(pos.x * 32, pos.y * 32, (pos.x * 32) + width, pos.y * 32, (pos.x * 32) + width / 2, (pos.y * 32) + height);
 		g.shapeRenderer.end();
 		
 		g.shapeRenderer.setTransformMatrix(new Matrix4());

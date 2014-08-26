@@ -62,7 +62,7 @@ public class Level {
 		background = new Color(0, 0, 0, 1);
 		foreground = new Color(1, 1, 1, 1);
 		
-		world = new World(new Vector2(0, -200), true);
+		world = new World(new Vector2(0, -9.8f), true);
 		world.setContactListener(new ContactListener() {
 			@Override
 			public void beginContact(Contact contact) {
@@ -115,6 +115,11 @@ public class Level {
 		
 		startTime = System.nanoTime();
 		levelCompleted = name + " Completed!";
+		
+		/*debugRenderer = new Box2DDebugRenderer();
+		box2dCam = new OrthographicCamera(game.getGraphics().camera.viewportWidth / 32, game.getGraphics().camera.viewportHeight / 32);
+		box2dCam.position.set(box2dCam.viewportWidth / 2, box2dCam.viewportHeight / 2, 0);
+		box2dCam.update();*/
 	}
 	
 	public void update() {
@@ -241,6 +246,8 @@ public class Level {
 		g.batch.end();
 		
 		player.render(g);
+		
+		//debugRenderer.render(world, box2dCam.combined);
 		if(complete){
 			g.batch.begin();
 			g.font.setColor(foreground);

@@ -33,18 +33,18 @@ public class Player extends Entity {
 		
 		bodyDef = new BodyDef();
 		bodyDef.type = BodyType.DynamicBody;
-		bodyDef.position.set(x + width / 2, y + height / 2);
+		bodyDef.position.set((x + width / 2) / 32, (y + height / 2) / 32);
 		
 		body = level.getWorld().createBody(bodyDef);
 		
 		PolygonShape box = new PolygonShape();
-		box.setAsBox(width / 2, height / 2);
+		box.setAsBox((width / 2) / 32, (height / 2) / 32);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = box;
-		fixtureDef.density = 0.1f;
-		fixtureDef.friction = 0.3f;
-		fixtureDef.restitution = 0.9f;
+		fixtureDef.density = 0.5f;
+		fixtureDef.friction = 0.5f;
+		fixtureDef.restitution = 0.3f;
 		
 		body.createFixture(fixtureDef);
 		body.setUserData(this);
@@ -61,46 +61,45 @@ public class Player extends Entity {
 			deathCount++;
 			dead = false;
 			Tile spawn = level.getDimension().getTile(level.getDimension().spawnTileId);
-			body.setTransform(spawn.x + width, spawn.y + 48, 0);
+			body.setTransform((spawn.x + width) / 32, (spawn.y + 48) / 32, 0);
 			body.setLinearDamping(0);
 			body.setLinearVelocity(0, 0);
 			body.setAngularVelocity(0);
 		}
 		
-		Vector2 vel = body.getLinearVelocity();
 		Vector2 pos = body.getPosition();
 		
-		if(pos.x < 0 || pos.x + width >= Game.WIDTH) dead = true;
-		if(pos.y < 0 || pos.y + height >= Game.HEIGHT) dead = true;
+		if(pos.x < 0 || pos.x + (width / 32) >= Game.WIDTH / 32) dead = true;
+		if(pos.y < 0 || pos.y + (height / 32) >= Game.HEIGHT / 32) dead = true;
 		
 		if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-			body.applyLinearImpulse(150.0f, 0, pos.x, pos.y, true);
+			body.applyLinearImpulse(0.08f, 0, pos.x, pos.y, true);
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-			body.applyLinearImpulse(-150.0f, 0, pos.x, pos.y, true);
+			body.applyLinearImpulse(-0.08f, 0, pos.x, pos.y, true);
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.W)) {
 			if(!falling) {
 				Sounds.JUMP.play();
 				falling = true;
 				body.setTransform(pos.x, pos.y + 0.01f, body.getAngle());
-				body.applyLinearImpulse(vel.x, 20000, pos.x, pos.y, true);//(0.0f, -5.0f, pos.x, pos.y, true);
+				body.applyLinearImpulse(0, 1.3f, pos.x, pos.y, true);
 			}
 		}
 		
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-			body.applyAngularImpulse(500, true);
+			body.applyAngularImpulse(0.01f, true);
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-			body.applyAngularImpulse(-500, true);
+			body.applyAngularImpulse(-0.01f, true);
 		}
 		
 		transform.idt();
-		transform.translate(pos.x, pos.y, 0);
+		transform.translate(pos.x * 32, pos.y * 32, 0);
 		transform.rotateRad(new Vector3(0, 0, 1), body.getAngle());
-		transform.translate(-pos.x, -pos.y, 0);
+		transform.translate(-pos.x * 32, -pos.y * 32, 0);
 		
-		falling = true;
+		//falling = true;
 	}
 	
 	@Override
@@ -109,7 +108,7 @@ public class Player extends Entity {
 		g.shapeRenderer.begin(ShapeType.Line);
 		g.shapeRenderer.setColor(color);
 		g.shapeRenderer.setTransformMatrix(transform);
-		g.shapeRenderer.rect(pos.x - width / 2, pos.y - height / 2, width, height);
+		g.shapeRenderer.rect((pos.x * 32) - width / 2, (pos.y * 32) - height / 2, width, height);
 		g.shapeRenderer.end();
 		
 		g.shapeRenderer.setTransformMatrix(new Matrix4());
