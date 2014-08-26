@@ -42,8 +42,6 @@ public class Level {
 	
 	private boolean complete = false;
 	
-	private float accumulator = 0;
-	
 	private String deathCount = "Deaths: ";
 	
 	private String time = "Time: ";
@@ -145,7 +143,7 @@ public class Level {
 		}
 		
 		if(!complete) {			
-			doWorldStep(Gdx.graphics.getDeltaTime());
+			world.step(1 / 60.0f, 6, 2);
 		
 			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && !tabPressed) {
 				Sounds.SWAP.play();
@@ -216,16 +214,6 @@ public class Level {
 				Sounds.SELECT.play();
 				dispose();
 			}
-		}
-	}
-	
-	private void doWorldStep(float delta) {
-		float frameTime = Math.min(delta, 0.25f);
-		accumulator += frameTime;
-		
-		while(accumulator >= 1 / 60.0f) {
-			world.step(1 / 60.0f, 6, 2);
-			accumulator -= 1 / 60.0f;
 		}
 	}
 	

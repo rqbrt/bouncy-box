@@ -18,6 +18,8 @@ public class Game extends ApplicationAdapter {
 	private Menu menu;
 	private Level level;
 	
+	private float accumulator = 0;
+	
 	public String[][] stats = new String[][] {
 			new String[]{"0", "0s"},		// level 1
 			new String[]{"0", "0s"},		// level 2
@@ -35,13 +37,20 @@ public class Game extends ApplicationAdapter {
 	
 	@Override
 	public void render() {
+		float frameTime = Math.min(Gdx.graphics.getDeltaTime(), 0.25f);
+		accumulator += frameTime;
+		
+		while(accumulator >= 1 / 60.0f) {
+			if(menu != null) menu.update();
+			if(level != null) level.update();
+			accumulator -= 1 / 60.0f;
+		}		
+		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		graphics.update();
 		
-		if(menu != null) menu.update();
-		if(level != null) level.update();
 		if(level != null) level.render(graphics);
 		if(menu != null) menu.render(graphics);
 	}
